@@ -9,3 +9,12 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
+class myIndexView(View):
+    def get(self, request):
+        register = login.objects.all()
+        print(register)
+        context = {
+            'register': register,
+
+        }
+        return render(request, 'loginTest.html', context)
